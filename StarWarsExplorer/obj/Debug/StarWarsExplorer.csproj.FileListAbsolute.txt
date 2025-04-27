@@ -11,3 +11,16 @@ C:\Users\matthew\Source\Repos\StarWarsApp\StarWarsExplorer\obj\Debug\StarWarsExp
 C:\Users\matthew\Source\Repos\StarWarsApp\StarWarsExplorer\obj\Debug\StarWars.F2071051.Up2Date
 C:\Users\matthew\Source\Repos\StarWarsApp\StarWarsExplorer\obj\Debug\StarWarsExplorer.exe
 C:\Users\matthew\Source\Repos\StarWarsApp\StarWarsExplorer\obj\Debug\StarWarsExplorer.pdb
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\bin\Debug\StarWarsExplorer.exe.config
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\bin\Debug\StarWarsExplorer.exe
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\bin\Debug\StarWarsExplorer.pdb
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\obj\Debug\StarWarsExplorer.csproj.AssemblyReference.cache
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\obj\Debug\StarWarsExplorer.Form1.resources
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\obj\Debug\StarWarsExplorer.Properties.Resources.resources
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\obj\Debug\StarWarsExplorer.csproj.GenerateResource.cache
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\obj\Debug\StarWarsExplorer.csproj.CoreCompileInputs.cache
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\obj\Debug\StarWars.F2071051.Up2Date
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\obj\Debug\StarWarsExplorer.exe
+C:\Users\matthew\source\repos\GitHub work\StarWarExplorer\StarWarsExplorer\obj\Debug\StarWarsExplorer.pdb

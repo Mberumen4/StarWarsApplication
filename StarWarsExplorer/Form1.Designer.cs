@@ -176,6 +176,7 @@
             this.lstSpecies.Name = "lstSpecies";
             this.lstSpecies.Size = new System.Drawing.Size(120, 95);
             this.lstSpecies.TabIndex = 14;
+            this.lstSpecies.SelectedIndexChanged += new System.EventHandler(this.lstSpecies_SelectedIndexChanged);
             // 
             // btnGetSpecies
             // 

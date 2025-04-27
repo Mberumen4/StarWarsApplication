@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StarWarsExplorer
@@ -24,10 +18,8 @@ namespace StarWarsExplorer
                 int planetId = int.Parse(txtPlanetId.Text);
                 string url = $"https://swapi.py4e.com/api/planets/{planetId}/";
 
-                // Fetch and deserialize the planet data
                 var planet = await ApiHelper.GetDataAsync<Planet>(url);
 
-                // Display the planet data
                 lblName.Text = $"Name: {planet.name}";
                 lblClimate.Text = $"Climate: {planet.climate}";
                 lblTerrain.Text = $"Terrain: {planet.terrain}";
@@ -36,7 +28,7 @@ namespace StarWarsExplorer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error fetching planet: " + ex.Message);
             }
         }
 
@@ -47,26 +39,33 @@ namespace StarWarsExplorer
                 int personId = int.Parse(txtPersonId.Text);
                 string url = $"https://swapi.py4e.com/api/people/{personId}/";
 
-                // Fetch and deserialize the person data
                 var person = await ApiHelper.GetDataAsync<Person>(url);
 
-                // Display the person data
                 lblPersonName.Text = $"Name: {person.name}";
                 lblHeight.Text = $"Height: {person.height}";
                 lblMass.Text = $"Mass: {person.mass}";
                 lblBirthYear.Text = $"Birth Year: {person.birth_year}";
 
-                // Clear the starship list and add new ones
                 lstStarships.Items.Clear();
-                foreach (var starshipUrl in person.starships)
+                if (person.starships != null && person.starships.Count > 0)
                 {
-                    var starship = await ApiHelper.GetDataAsync<Starship>(starshipUrl);
-                    lstStarships.Items.Add(starship.name);
+                    foreach (var starshipUrl in person.starships)
+                    {
+                        var starship = await ApiHelper.GetDataAsync<Starship>(starshipUrl);
+                        if (starship != null)
+                        {
+                            lstStarships.Items.Add(starship.name);
+                        }
+                    }
+                }
+                else
+                {
+                    lstStarships.Items.Add("No Starships");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error fetching person: " + ex.Message);
             }
         }
 
@@ -74,18 +73,28 @@ namespace StarWarsExplorer
         {
             try
             {
+                btnGetSpecies.Enabled = false;
+                btnGetSpecies.Text = "Loading...";
+
                 string url = "https://swapi.py4e.com/api/species/";
                 List<Species> allSpecies = new List<Species>();
 
-                // Fetch all species (handle pagination if needed)
                 while (!string.IsNullOrEmpty(url))
                 {
                     var speciesResult = await ApiHelper.GetDataAsync<SpeciesResult>(url);
-                    allSpecies.AddRange(speciesResult.results);
+
+                    if (speciesResult == null)
+                    {
+                        MessageBox.Show("Failed to fetch species data.");
+                        return;
+                    }
+
+                    if (speciesResult.results != null)
+                        allSpecies.AddRange(speciesResult.results);
+
                     url = speciesResult.next;
                 }
 
-                // Display all species
                 lstSpecies.Items.Clear();
                 foreach (var species in allSpecies)
                 {
@@ -94,9 +103,19 @@ namespace StarWarsExplorer
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error fetching species: " + ex.Message);
             }
+            finally
+            {
+                btnGetSpecies.Enabled = true;
+                btnGetSpecies.Text = "Get Species";
+            }
+        }
+            private void lstSpecies_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // This was generated automatically. You can leave it empty.
         }
 
     }
 }
+
